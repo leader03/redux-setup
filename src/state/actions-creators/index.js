@@ -37,3 +37,11 @@ export const isLoggedOut = () => {
         })
     }
 }
+export const dataList = (data) => {
+    return (dispatch) => {
+        dispatch({
+            type:'data',
+            payload:data
+        })
+    }
+}

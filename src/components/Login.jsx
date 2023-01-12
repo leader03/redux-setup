@@ -28,6 +28,7 @@ const Login = () => {
         let data = await response.json()
         if(response.status === 200){
             // setAuthTokens(data)
+            localStorage.setItem('authTokens', JSON.stringify(data))
             isLoggedIn()
         }
 

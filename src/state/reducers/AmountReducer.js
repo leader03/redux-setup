@@ -20,12 +20,22 @@ export const AddValue = (state=10,action) => {
     }
 }
 
-export const Islogged = (state=false,action) => {
+export const Islogged = (state= localStorage.getItem('authTokens') ? true : false,action) => {
     if(action.type === 'login'){
-        return !state
+        return true
     }
     else if(action.type === 'logout'){
+        localStorage.removeItem('authTokens')
         return false
+    }
+    else {
+        return state
+    }
+}
+
+export const datalist = (state= null,action) => {
+    if(action.type === 'data'){
+        return action.payload
     }
     else {
         return state
